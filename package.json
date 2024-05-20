@@ -1,0 +1,42 @@
+{
+    "name": "kernel-basic",
+    "version": "1.0.0",
+    "description": "minimal template to use with @avanzu/kernel",
+    "main": "dist/main.js",
+    "scripts": {
+        "test": "jest",
+        "test:unit": "jest --config=jest.unit.config.ts",
+        "test:unit:watch": "jest --config=jest.unit.config.ts --coverage=false --watch",
+        "prebuild": "rimraf ./dist",
+        "build": "tsc -p tsconfig.build.json",
+        "postbuild": "tsc-alias -p tsconfig.build.json",
+        "start": "nnode -r dotenv/config dist/main.js",
+        "dev": "nodemon src/main.ts",
+        "debug": "nodemon --inspect=0.0.0.0:${DEBUG_PORT} src/main.ts"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/jest": "^29.5.12",
+        "@types/koa": "^2.15.0",
+        "@types/supertest": "^6.0.2",
+        "jest": "^29.7.0",
+        "nodemon": "^3.1.0",
+        "rimraf": "^5.0.7",
+        "supertest": "^7.0.0",
+        "trace-unhandled": "^2.0.1",
+        "ts-jest": "^29.1.2",
+        "ts-node": "^10.9.2",
+        "tsc-alias": "^1.8.10",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "@avanzu/kernel": "^1.4.2",
+        "ajv": "^8.13.0",
+        "dotenv": "^16.4.5",
+        "http-status-codes": "^2.3.0",
+        "jsonwebtoken": "^9.0.2",
+        "pino": "^9.1.0"
+    }
+}
