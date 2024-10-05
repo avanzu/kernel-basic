@@ -7,3 +7,4 @@ export interface Container extends Kernel.Container<Services> {}
 export interface State extends Kernel.AppState<Container> {}
 export interface Context extends Kernel.AppContext<Container, State> {}
 export interface App extends Kernel.App<Container, State, Context> {}
+export interface Middleware extends Kernel.AppMiddleware<Container, State, Context>{}
