@@ -1,12 +1,19 @@
 import { ConfigValues } from './application/interfaces'
 import { AppKernel } from './application/kernel'
 import { Config } from './application/modules'
+import { environments } from './configuration'
+
 ;(async function main() {
     let configValues: ConfigValues
 
     try {
-        const env = process.env.NODE_ENV || 'default'
-        configValues = require(`./configuration/${env}`).default
+        const env = process.env.NODE_ENV || 'development'
+        if(false === environments.has(env)) {
+            throw new Error(`Unable to locate configuration for environment "${env}".`)
+        }
+
+        configValues = environments.get(env)!
+
     } catch (error) {
         console.error(error)
         process.exit(1)

@@ -1,7 +1,7 @@
 import { ConfigValues } from '~/application/interfaces'
 import defaults from './development'
 
-const testConfig: ConfigValues = {
+export const testConfig: ConfigValues = {
     ...defaults
 }
 

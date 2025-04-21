@@ -1,7 +1,7 @@
 import { ConfigValues } from '~/application/interfaces'
 import defaults from './default'
 
-const developmentConfig: ConfigValues = {
+export const developmentConfig: ConfigValues = {
     ...defaults,
     host: process.env.HOST || defaults.host,
     port: process.env.PORT ? Number(process.env.PORT) : defaults.port,
